@@ -52,8 +52,9 @@ documentación de GitHub Pages al configurarlo.
 ## Pendientes antes de publicar
 
 - **Páginas legales**: `privacidad/`, `terminos/` y `eliminar-cuenta/` son
-  borradores. Completar los marcadores `[NOMBRE DEL RESPONSABLE]`,
-  `[NIT O CÉDULA]` y `[CIUDAD]`, y hacerlos revisar por un abogado.
+  borradores; hacerlos revisar por un abogado. El NIT que figura en
+  `privacidad/` (`0000000000`) es provisional: reemplazarlo por el NIT real
+  de Poliskopia S.A.S.
 - **Botones de descarga**: hoy dicen "Próximamente". Cuando la app esté
   publicada, convertir cada `<li class="store">` de `index.html` en un enlace
   a la tienda.
