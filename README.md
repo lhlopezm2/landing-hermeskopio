@@ -50,7 +50,7 @@ dominio.
 Las IPs son las que documenta GitHub para dominios apex — confirmarlas en la
 documentación de GitHub Pages al configurarlo.
 
-## Pendientes antes de publicar
+## Pendientes
 
 - **Páginas legales**: `privacidad/`, `terminos/` y `eliminar-cuenta/` son
   borradores; hacerlos revisar por un abogado. El NIT que figura en
@@ -59,6 +59,22 @@ documentación de GitHub Pages al configurarlo.
 - **Botones de descarga**: hoy dicen "Próximamente". Cuando la app esté
   publicada, convertir cada `<li class="store">` de `index.html` en un enlace
   a la tienda.
+- **Google Search Console**: el sitio ya tiene los metadatos SEO, el
+  `sitemap.xml` y el `robots.txt`, pero Google no lo indexará pronto si no se
+  registra:
+  1. En [Search Console](https://search.google.com/search-console), añadir
+     `hermeskopio.com` como propiedad de tipo **"Dominio"**.
+  2. Verificarla con el registro `TXT` que entrega Google, en el DNS del
+     registrador. Es un registro adicional: no reemplaza los TXT de correo
+     (SPF/DMARC) que ya existen.
+  3. En "Sitemaps", enviar `https://hermeskopio.com/sitemap.xml`.
+  4. En "Inspección de URLs", pegar `https://hermeskopio.com/` y pulsar
+     "Solicitar indexación".
+
+  La indexación suele tardar de unos días a un par de semanas. Conviene
+  validar además la página principal en la "Prueba de resultados
+  enriquecidos" de Google, porque los datos estructurados (JSON-LD) no se han
+  pasado por ninguna herramienta de validación de Google.
 
 ## Página de recuperación (`/recuperar/`)
 
