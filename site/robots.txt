@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /recuperar/
+
+Sitemap: https://hermeskopio.com/sitemap.xml

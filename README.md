@@ -15,8 +15,9 @@ site/                      # lo único que se publica
 ├── eliminar-cuenta/       # instrucciones de borrado de cuenta (borrador)
 ├── recuperar/             # puente del link de recuperación de contraseña
 ├── 404.html
-├── robots.txt
-└── assets/                # styles.css, recuperar.js, icono.png, logo.png
+├── robots.txt             # excluye /recuperar/ y apunta al sitemap
+├── sitemap.xml            # las 4 páginas indexables — añadir aquí cualquier página nueva
+└── assets/                # styles.css, recuperar.js, icono.png, logo.png, og.png (imagen al compartir)
 .github/workflows/deploy.yml
 ```
 
