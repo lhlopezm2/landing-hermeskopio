@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+      Esta página recibe el token de recuperación de contraseña en la URL.
+      No añadir aquí NINGÚN recurso de terceros (analítica, fuentes, widgets):
+      cualquier script en este origen podría leer el token. Ver README.md.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Restablecer contraseña — Hermeskopio</title>
+    <meta name="theme-color" content="#6366f1" />
+    <link rel="icon" type="image/png" href="/assets/icono.png" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <img src="/assets/icono.png" alt="" width="36" height="36" />
+          Hermeskopio
+        </a>
+      </div>
+    </header>
+
+    <main class="doc">
+      <div class="wrap narrow">
+        <div class="panel">
+          <h1>Restablecer contraseña</h1>
+
+          <div id="estado-ok" hidden>
+            <p>
+              Pulsa el botón para continuar en la app de Hermeskopio y elegir
+              una contraseña nueva. Ábrelo desde el mismo teléfono donde
+              solicitaste el cambio.
+            </p>
+            <button class="button" id="continuar" type="button">
+              Continuar
+            </button>
+          </div>
+
+          <div id="estado-error" hidden>
+            <p class="error">
+              Este enlace no es válido o está incompleto.
+            </p>
+            <p>
+              Vuelve a la app, pulsa «Olvidé mi contraseña» y usa el enlace del
+              correo más reciente.
+            </p>
+          </div>
+
+          <noscript>
+            <p class="error">
+              Necesitas activar JavaScript en tu navegador para continuar.
+            </p>
+          </noscript>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>© 2026 Hermeskopio</p>
+        <p>
+          Si no solicitaste este cambio, ignora el correo: tu contraseña no se
+          modificará.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/assets/recuperar.js"></script>
+  </body>
+</html>
