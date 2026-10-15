@@ -1,4 +1,6 @@
 User-agent: *
 Disallow: /recuperar/
+Disallow: /post/
+Disallow: /post-stg/
 
 Sitemap: https://hermeskopio.com/sitemap.xml

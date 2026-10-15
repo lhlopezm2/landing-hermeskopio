@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hermeskopio.hermeskopio.prod",
+      "sha256_cert_fingerprints": [
+        "FC:6A:2E:3B:09:98:78:4D:3F:5D:EE:53:56:1C:CE:57:0E:04:41:0A:3E:F9:72:94:40:F7:CA:FE:76:8F:27:5B"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hermeskopio.hermeskopio.stg",
+      "sha256_cert_fingerprints": [
+        "EE:1C:86:4C:3E:11:FC:5F:70:C9:66:BB:96:2C:4E:F1:BC:93:B5:33:0B:92:38:14:F2:6F:44:8D:72:AE:58:66"
+      ]
+    }
+  }
+]
