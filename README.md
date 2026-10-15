@@ -14,8 +14,10 @@ site/                      # lo único que se publica
 ├── terminos/              # términos y condiciones (borrador)
 ├── eliminar-cuenta/       # instrucciones de borrado de cuenta (borrador)
 ├── recuperar/             # puente del link de recuperación de contraseña
+├── post/, post-stg/       # destino de los enlaces "Compartir" de un post (prod / staging)
+├── .well-known/assetlinks.json  # Android App Links: deja que la app abra /post/ y /post-stg/
 ├── 404.html
-├── robots.txt             # excluye /recuperar/ y apunta al sitemap
+├── robots.txt             # excluye /recuperar/, /post/ y /post-stg/ y apunta al sitemap
 ├── sitemap.xml            # las 4 páginas indexables — añadir aquí cualquier página nueva
 └── assets/                # styles.css, recuperar.js, icono.png, logo.png, og.png (imagen al compartir)
 .github/workflows/deploy.yml
@@ -120,3 +122,31 @@ GitHub Pages no permite cabeceras HTTP propias, por eso la CSP y la política
 de referrer van como etiquetas `<meta>`. Lo único que eso no cubre es
 `frame-ancestors`; `recuperar.js` lo compensa negándose a habilitar el botón
 si la página está dentro de un iframe.
+
+## Enlaces de posts (`/post/`, `/post-stg/`) y App Links
+
+La app comparte un post como `https://hermeskopio.com/post/?id=<postId>`
+(staging: `/post-stg/`). En Android, cada flavor declara un `intent-filter`
+con `autoVerify` para su propia ruta, y Android lo verifica contra
+`.well-known/assetlinks.json`: si el paquete y la huella SHA-256 de su firma
+coinciden, el enlace abre la app directamente y estas páginas no se ven. La
+app decide adónde llevarlo: al post si sigue vigente, al perfil del negocio si
+ya caducó.
+
+Las páginas solo se ven cuando la app no está instalada (o la verificación
+falló). No tienen JavaScript ni leen el `id`: la API de Supabase no responde
+sin sesión, así que no pueden mostrar el post.
+
+Huellas en `assetlinks.json`:
+
+- `com.hermeskopio.hermeskopio.stg`: el `debug.keystore` versionado en el repo
+  de la app (`android/app/debug.keystore`), con el que se firma staging.
+- `com.hermeskopio.hermeskopio.prod`: la clave de subida (`android/key.properties`).
+  **Cuando la app se publique en Play con "Firma de apps de Google Play"**,
+  hay que añadir también la huella de la clave de firma de la app (Play
+  Console → Configuración → Integridad de la app); sin ella, las instalaciones
+  desde Play no abren los enlaces.
+
+Para comprobarlo en un teléfono:
+`adb shell pm get-app-links com.hermeskopio.hermeskopio.prod`.
+
