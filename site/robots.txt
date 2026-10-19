@@ -2,5 +2,7 @@ User-agent: *
 Disallow: /recuperar/
 Disallow: /post/
 Disallow: /post-stg/
+Disallow: /negocio/
+Disallow: /negocio-stg/
 
 Sitemap: https://hermeskopio.com/sitemap.xml

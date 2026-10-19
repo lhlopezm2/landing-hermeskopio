@@ -15,9 +15,10 @@ site/                      # lo único que se publica
 ├── eliminar-cuenta/       # instrucciones de borrado de cuenta (borrador)
 ├── recuperar/             # puente del link de recuperación de contraseña
 ├── post/, post-stg/       # destino de los enlaces "Compartir" de un post (prod / staging)
-├── .well-known/assetlinks.json  # Android App Links: deja que la app abra /post/ y /post-stg/
+├── negocio/, negocio-stg/ # destino de los enlaces "Compartir" de un negocio (prod / staging)
+├── .well-known/assetlinks.json  # Android App Links: deja que la app abra /post/, /negocio/ y sus versiones -stg
 ├── 404.html
-├── robots.txt             # excluye /recuperar/, /post/ y /post-stg/ y apunta al sitemap
+├── robots.txt             # excluye /recuperar/, /post/, /negocio/ (y sus -stg) y apunta al sitemap
 ├── sitemap.xml            # las 4 páginas indexables — añadir aquí cualquier página nueva
 └── assets/                # styles.css, recuperar.js, icono.png, logo.png, og.png (imagen al compartir)
 .github/workflows/deploy.yml
@@ -123,7 +124,7 @@ de referrer van como etiquetas `<meta>`. Lo único que eso no cubre es
 `frame-ancestors`; `recuperar.js` lo compensa negándose a habilitar el botón
 si la página está dentro de un iframe.
 
-## Enlaces de posts (`/post/`, `/post-stg/`) y App Links
+## Enlaces de posts y negocios (`/post/`, `/negocio/` y sus `-stg`) y App Links
 
 La app comparte un post como `https://hermeskopio.com/post/?id=<postId>`
 (staging: `/post-stg/`). En Android, cada flavor declara un `intent-filter`
@@ -133,9 +134,14 @@ coinciden, el enlace abre la app directamente y estas páginas no se ven. La
 app decide adónde llevarlo: al post si sigue vigente, al perfil del negocio si
 ya caducó.
 
+Un negocio se comparte igual, como `https://hermeskopio.com/negocio/?id=<negocioId>`
+(staging: `/negocio-stg/`), y abre su perfil; si fue eliminado o bloqueado, la
+app lleva al inicio con un aviso. `assetlinks.json` verifica el dominio, no la
+ruta, así que no cambió al añadir estas páginas.
+
 Las páginas solo se ven cuando la app no está instalada (o la verificación
 falló). No tienen JavaScript ni leen el `id`: la API de Supabase no responde
-sin sesión, así que no pueden mostrar el post.
+sin sesión, así que no pueden mostrar el post ni el negocio.
 
 Huellas en `assetlinks.json`:
 

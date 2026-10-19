@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+      Destino de los enlaces "Compartir" de un negocio. Si la app está instalada,
+      Android abre el enlace directamente en ella (App Links, ver
+      /.well-known/assetlinks.json) y esta página no llega a verse. Sin
+      JavaScript: la página no lee el id del negocio ni muestra su contenido —
+      la API de Supabase no responde sin sesión.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Negocio en Hermeskopio (staging)</title>
+    <meta name="theme-color" content="#6366f1" />
+    <link rel="icon" type="image/png" href="/assets/icono.png" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <img src="/assets/icono.png" alt="" width="36" height="36" />
+          Hermeskopio
+        </a>
+      </div>
+    </header>
+
+    <main class="doc">
+      <div class="wrap narrow">
+        <div class="panel">
+          <h1>Este negocio se ve en la app</h1>
+          <p>
+            Te compartieron un negocio en Hermeskopio. Ábrelo desde un
+            teléfono Android con la app instalada para ver su perfil: horario,
+            productos, vacantes y cómo llegar.
+          </p>
+          <p>
+            Este enlace es del ambiente de pruebas: se abre con la app
+            «Hermeskopio (Staging)».
+          </p>
+          <p><a class="button" href="/">Conocer Hermeskopio</a></p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>© 2026 Hermeskopio</p>
+      </div>
+    </footer>
+  </body>
+</html>
